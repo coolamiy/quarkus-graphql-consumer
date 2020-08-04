@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphqlconsumer
+  labels:
+    app: graphqlconsumer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: graphqlconsumer
+      labels:
+        app: graphqlconsumer
+    spec:
+      containers:
+        - name: graphqlconsumer
+          image: docker.repo1.uhc.com/chwy/graphqlconsumer:latest
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: graphqlconsumer
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: graphqlconsumer
+spec:
+  selector:
+    app: graphqlconsumer
+  ports:
+    - port: 8080
+  type: NodePort
+

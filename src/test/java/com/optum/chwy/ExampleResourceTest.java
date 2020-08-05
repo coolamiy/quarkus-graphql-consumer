@@ -7,10 +7,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItems;
 
 @QuarkusTest
-public class ExampleResourceTest {
+class ExampleResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+void testHelloEndpoint() {
         given()
                 .when().get("/retrievedata")
                 .then()

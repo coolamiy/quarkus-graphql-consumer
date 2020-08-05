@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 /**
- * @author Amit Dixit (href: amit_dixit1@optum.com)
+ * @author Amit Dixit
  */
 @Path("/graphql")
 @RegisterRestClient
@@ -17,5 +17,5 @@ public interface CallGraphEndpoint {
     @Path("/")
     @Produces("application/json")
     @Consumes("application/json")
-    String getDataFromGraphEndpoints(String Body);
+    String getDataFromGraphEndpoints(Object Body);
 }
